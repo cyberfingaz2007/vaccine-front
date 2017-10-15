@@ -4,13 +4,11 @@ import Header from './Header'
 import SideMenu from './SideMenu'
 import Footer from './Footer'
 
-// require('../../smartadmin/components/less/components.less');
-
 export default class Layout extends React.Component {
   render() {
     return (
-      <div>
-        <Header />
+      <div className="flow">
+        <Header></Header>
         <div className="wrapper row-offcanvas row-offcanvas-left">
           <SideMenu />
           <aside className="right-side">

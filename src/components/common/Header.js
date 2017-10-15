@@ -1,14 +1,12 @@
 import React from 'react'
 
 
-// require('../../smartadmin/components/less/components.less');
-
 export default class Layout extends React.Component {
   render() {
     return (
-      <header className="header">
+      <header id="header" className="header">
         <a href="/" className="logo">
-            Vaccine Record
+            JUMAIN Vaccine Tracker
         </a>
         <nav className="navbar navbar-static-top" role="navigation">
           <a href="#" className="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
@@ -113,7 +111,7 @@ export default class Layout extends React.Component {
                               <small className="pull-right">20%</small>
                             </h3>
                             <div className="progress progress-striped xs">
-                              <div className="progress-bar progress-bar-success" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <div className="progress-bar progress-bar-success" style={{width: 20}} role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                   <span className="sr-only">20% Complete</span>
                               </div>
                             </div>
@@ -126,7 +124,7 @@ export default class Layout extends React.Component {
                               <small className="pull-right">40%</small>
                             </h3>
                             <div className="progress progress-striped xs">
-                              <div className="progress-bar progress-bar-danger" style="width: 40%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                              <div className="progress-bar progress-bar-danger" style={{width: 40}} role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
                                 <span className="sr-only">40% Complete</span>
                               </div>
                             </div>
@@ -142,7 +140,7 @@ export default class Layout extends React.Component {
               <li className="dropdown user user-menu">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                   <i className="fa fa-user"></i>
-                  <span>Jane Doe <i className="caret"></i></span>
+                  <span>Jude Udoh <i className="caret"></i></span>
                 </a>
                 <ul className="dropdown-menu dropdown-custom dropdown-menu-right">
                   <li className="dropdown-header text-center">Account</li>
