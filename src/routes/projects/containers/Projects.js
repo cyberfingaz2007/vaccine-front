@@ -5,21 +5,20 @@ import { Link } from 'react-router'
 
 import { Col, Clearfix, Panel, Row, Table } from 'react-bootstrap';
 
-import * as patientActions from '../actions/patient'
-import PatientTableRow from '../components/PatientTableRow'
-import PatientList from './PatientList'
+import * as projectActions from '../actions/project'
+import ProjectTableRow from '../components/ProjectTableRow'
 
 import PanelWidget from '../../../components/ui/PanelWidget'
-
+import ProjectList from './ProjectList'
 // require('../../smartadmin/components/less/components.less');
 
-class Patients extends React.Component {
+class Projects extends React.Component {
 	constructor(props){
     super(props);
   }
 
   componentWillMount(){
-    this.props.patientListRequest()
+    this.props.projectListRequest()
 
   }
   
@@ -27,8 +26,8 @@ class Patients extends React.Component {
     return (
       <Row>
     		<Col md={12}>
-          <PanelWidget panelHeader="Registered Patients">
-            {(this.props.patients.length > 0) ? <PatientList patients={this.props.patients} /> : <div><p>There are no patients to show</p></div>}
+          <PanelWidget panelHeader="List of Projects">
+            {(this.props.projects.length > 0) ? <ProjectList projects={this.props.projects} /> : <div><p>There are no projects to show</p></div>}
           </PanelWidget>
         </Col>
         
@@ -39,13 +38,13 @@ class Patients extends React.Component {
 
 
 const mapStateToProps = state => ({
-  patients: state.patient.dataList,
+  projects: state.project.dataList,
 })
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({...patientActions},dispatch);
+    return bindActionCreators({...projectActions},dispatch);
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Patients);
+export default connect(mapStateToProps,mapDispatchToProps)(Projects);
 
-//export default Patients
+//export default Projects

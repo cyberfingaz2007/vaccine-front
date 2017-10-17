@@ -3,12 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "apisauce": "^0.14.1",
     "bootstrap": "^3.3.7",
+    "chart.js": "^2.7.0",
+    "highcharts": "^6.0.1",
     "jquery": "^3.2.1",
+    "jquery-ui": "^1.12.1",
+    "ramda": "^0.25.0",
+    "ramdasauce": "^2.1.0",
     "react": "^16.0.0",
     "react-bootstrap": "^0.31.3",
+    "react-datepicker": "^0.55.0",
     "react-dom": "^16.0.0",
     "react-google-maps": "^8.3.0",
+    "react-overlay-loading": "^1.0.3",
     "react-redux": "^5.0.6",
     "react-router": "3.0.5",
     "react-router-dom": "^4.2.2",
@@ -16,7 +24,10 @@
     "react-scripts": "1.0.14",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
-    "redux-saga": "^0.15.6"
+    "redux-saga": "^0.15.6",
+    "request": "^2.83.0",
+    "select2": "^4.0.4",
+    "smartadmin-plugins": "^1.0.20"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -17,7 +17,7 @@ export default {
     {
       path: 'list-projects',
       getComponent(nextState, cb){
-        import('./containers/ProjectList').then((m)=> {
+        import('./containers/Projects').then((m)=> {
           cb(null, m.default)
         })
       }

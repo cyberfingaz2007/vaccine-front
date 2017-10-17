@@ -17,7 +17,7 @@ export default {
     {
       path: 'list-communities',
       getComponent(nextState, cb){
-        import('./containers/CommunityList').then((m)=> {
+        import('./containers/Communities').then((m)=> {
           cb(null, m.default)
         })
       }
