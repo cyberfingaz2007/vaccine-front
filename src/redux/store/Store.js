@@ -57,7 +57,7 @@ export default (rootReducer, rootSaga) => {
 
   /* ------------- Logger Middleware ------------- */
 
-  const SAGA_LOGGING_BLACKLIST = ['EFFECT_TRIGGERED', 'EFFECT_RESOLVED', 'EFFECT_REJECTED', 'persist/REHYDRATE']
+  /*const SAGA_LOGGING_BLACKLIST = ['EFFECT_TRIGGERED', 'EFFECT_RESOLVED', 'EFFECT_REJECTED', 'persist/REHYDRATE']
   if (__DEV__) {
     // the logger master switch
     const USE_LOGGING = Config.reduxLogging
@@ -67,10 +67,10 @@ export default (rootReducer, rootSaga) => {
       predicate: (getState, { type }) => USE_LOGGING && R.not(R.contains(type, SAGA_LOGGING_BLACKLIST))
     })
     middleware.push(logger)
-  }
+  }*/
 
   /* ------------- Assemble Middleware ------------- */
-
+  middleware.push(logger)
   enhancers.push(applyMiddleware(...middleware))
 
   /* ------------- AutoRehydrate Enhancer ------------- */

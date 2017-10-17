@@ -1,23 +1,23 @@
 export default {
-  path: 'projects',
+  path: 'communities',
   component: require('../../components/common/Layout').default,
 
-  indexRoute: { onEnter: (nextState, replace) => replace('/projects/new-project') },
+  indexRoute: { onEnter: (nextState, replace) => replace('/communities/list-communities') },
 
   childRoutes: [
     {
-      path: 'new-project',
+      path: 'new-community',
       getComponent(nextState, cb){
-        import('./containers/NewProject').then((m)=> {
+        import('./containers/NewCommunity').then((m)=> {
           cb(null, m.default)
         })
       }
     }
     ,
     {
-      path: 'list-projects',
+      path: 'list-communities',
       getComponent(nextState, cb){
-        import('./containers/ProjectList').then((m)=> {
+        import('./containers/CommunityList').then((m)=> {
           cb(null, m.default)
         })
       }

@@ -12,7 +12,7 @@ export default class Layout extends React.Component {
         <div className="wrapper row-offcanvas row-offcanvas-left">
           <SideMenu />
           <aside className="right-side">
-            <section class="content">
+            <section className="content">
               {this.props.children}
             </section>
             <Footer />

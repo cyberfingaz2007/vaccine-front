@@ -7,20 +7,43 @@
       "route": "/dashboard"
     },
     {
-      "title": "Record Entry",
-      "route": "/record-entry",
-      "icon": "fa fa-lg fa-fw fa-pencil-square-o",
-      "badge": {
-        "label": "14",
-        "class": "badge pull-right"
-      }
+      "title": "Patients",
+      "icon": "fa fa-lg fa-fw fa-user-o txt-color-blue",
+      "items": [
+        {
+          "icon": "fa fa-pencil-square-o",
+          "title": "Register Patient",
+          "route": "/records/new-patient"
+        },
+        {
+          "icon": "fa fa-tasks",
+          "title": "List Patients",
+          "route": "/records/list-patients"
+        }
+      ]
+    },
+    {
+      "title": "Communities",
+      "icon": "fa fa-lg fa-fw fa-users txt-color-blue",
+      "items": [
+        {
+          "icon": "fa fa-pencil-square-o",
+          "title": "Add Community",
+          "route": "/communities/new-community"
+        },
+        {
+          "icon": "fa fa-tasks",
+          "title": "List Communities",
+          "route": "/communities/list-communities"
+        }
+      ]
     },
     {
       "title": "Projects",
       "icon": "fa fa-lg fa-fw fa-sticky-note-o txt-color-blue",
       "items": [
         {
-          "icon": "fa fa-sun-o",
+          "icon": "fa fa-pencil-square-o",
           "title": "New Project",
           "route": "/projects/new-project"
         },
@@ -49,7 +72,7 @@
     },
     {
       "title": "Configurations",
-      "route": "/config",
+      "route": "/configs",
       "icon": "fa fa-lg fa-fw fa-gear",
       "badge": {
         "label": "14",

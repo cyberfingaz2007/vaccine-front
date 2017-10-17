@@ -17,6 +17,7 @@ const routes = {
     require('./routes/configs').default,
     require('./routes/reports').default,
     require('./routes/projects').default,
+    require('./routes/communities').default,
 
 
     // comment unused routes

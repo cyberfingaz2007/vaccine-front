@@ -1,7 +1,22 @@
 import React from 'react'
-
+import $ from 'jquery'
 
 export default class Layout extends React.Component {
+  toggleMenu(e) {
+    /*const $body = $('body');
+    const $html = $('html');
+
+    if (!$body.hasClass("menu-on-top")){
+      $html.toggleClass("hidden-menu-mobile-lock");
+      $body.toggleClass("hidden-menu");
+      $body.removeClass("minified");
+    } else if ( $body.hasClass("menu-on-top") && $body.hasClass("mobile-view-activated") ) {
+      $html.toggleClass("hidden-menu-mobile-lock");
+      $body.toggleClass("hidden-menu");
+      $body.removeClass("minified");
+    }
+    e.preventDefault();*/
+  }
   render() {
     return (
       <header id="header" className="header">
@@ -9,7 +24,7 @@ export default class Layout extends React.Component {
             JUMAIN Vaccine Tracker
         </a>
         <nav className="navbar navbar-static-top" role="navigation">
-          <a href="#" className="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
+          <a onClick={this.toggleMenu} className="navbar-btn sidebar-toggle" data-toggle="offcanvas" role="button">
               <span className="sr-only">Toggle navigation</span>
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
