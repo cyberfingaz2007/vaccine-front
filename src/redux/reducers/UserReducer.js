@@ -1,27 +1,26 @@
 'use strict';
 
-import type {Action} from '../actions/types';
-
-export type State = {
-  isLoggedIn: boolean;
-  id: ?string;
-  name: ?string;
-};
 
 const initialState = {
-  isLoggedIn: false,
-  userId: null,
-  userName: null,
+  isFetching: false,
+  isFetched: false,
+  isFetchError: false,
+  fetchError: null,
+  isLoggedIn:true,
+  fullName:"Unknown",
+  firstName:"Unknown",
+  userName:"Unknown"
 };
 
-function LoginReducer(state: State = initialState, action: Action): State {
+function UserReducer(state = initialState, action) {
   switch (action.type) {
     case 'LOGGED_IN':
-      let {userId, userName} = action.data;
       return {
+        ...state,
         isLoggedIn: true,
-        userId,
-        userName,
+        fullName:"Jude Udoh",
+        firstName:"Jude",
+        userName:"cyberfingaz2007"
       };
       break;
     case 'LOGGED_OUT':
@@ -32,4 +31,4 @@ function LoginReducer(state: State = initialState, action: Action): State {
   }
 }
 
-module.exports = LoginReducer;
+export default UserReducer;

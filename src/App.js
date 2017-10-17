@@ -6,6 +6,17 @@ import {Router, hashHistory} from 'react-router'
 
 import logo from './logo.svg';
 import './App.css';
+import createStore from './redux/store/Store';
+import rootReduce from './redux/reducers/RootReducer';
+import rootSaga from './redux/sagas/';
+
+//const rootSaga = rootSag();
+
+const rootReducer = rootReduce();
+
+const store = createStore(rootReducer, rootSaga);
+
+const history = syncHistoryWithStore(hashHistory, store);
 
 const routes = {
 
@@ -28,10 +39,12 @@ const routes = {
 class App extends Component {
   render() {
     return (
-      <Router
-        history={hashHistory}
-        routes={routes}
-      />
+      <Provider store={store}>
+        <Router
+          history={hashHistory}
+          routes={routes}
+        />
+      </Provider>
     );
   }
 }

@@ -1,53 +1,58 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 //import { persistStore, autoRehydrate } from 'redux-persist'
 import createLogger from 'redux-logger'
-import Config from '../../Config/DebugSettings'
+//import Config from '../../Config/DebugSettings'
 import createSagaMiddleware from 'redux-saga'
-import R from 'ramda'
+//import R from 'ramda'
 //import RehydrationServices from '../Services/RehydrationServices'
 //import ReduxPersist from '../Config/ReduxPersist'
 //import { StartupTypes } from './StartupRedux'
 
 export default (rootReducer, rootSaga) => {
 
-  var isDebuggingInChrome = __DEV__ && !!window.navigator.userAgent;
-
+  var isDebuggingInChrome = window.navigator.userAgent;
+  /*
   var logger = createLogger({
     predicate: (getState, action) => isDebuggingInChrome,
     collapsed: true,
     duration: true,
-  });
+  });*/
   const middleware = []
   const enhancers = []
   var defaultState = {
-    userStatus:{
-      isLoggedIn:false,
-      userId:null,
-      userName:null
+    community:{
+      dataList:[],
+      currentCommunity:null
     },
-    categories:[],
-    account:{
-      accountId:null,
-      acctBal:null,
-      lastDebited:null,
-      lastCredited:null,
-    },
-    series:{
-      isFetching:false,
-      topRated:[],
-      holly:[],
-      nolly:[],
-      novelas:[],
-      korean:[]
-    },
-    movies:{
+    dashboard:{
+      vacGraph:[],
       recentlyAdded:[],
-      holly:[],
-      nolly:[],
-      bolly:[],
+      totVacNum:null,
+      timeElapsed:null,
+      budgetSpent:null,
+      numOfProjects:null
     },
-    comedy:null,
-    myLibrary:null,
+    patient:{
+      dataList:[],
+      currentPatient:null
+    },
+    project:{
+      dataList:[],
+      currentProject:null
+    },
+    reports:{
+      patVaccByDate:[],
+      progressPieTillDate:[],
+      totalVaccinated:[],
+      totBudgetSpent:null,
+      projectTimeElapsed:null
+    },
+    user:{
+      isLoggedIn:true,
+      fullName:"Jude Udoh",
+      firstName:"Jude",
+      userName:"cyberfingaz2007"
+    }
   }
 
   /* ------------- Saga Middleware ------------- */
@@ -70,8 +75,8 @@ export default (rootReducer, rootSaga) => {
   }*/
 
   /* ------------- Assemble Middleware ------------- */
-  middleware.push(logger)
-  enhancers.push(applyMiddleware(...middleware))
+  //middleware.push(logger)
+  //enhancers.push(applyMiddleware(...middleware))
 
   /* ------------- AutoRehydrate Enhancer ------------- */
 /*
