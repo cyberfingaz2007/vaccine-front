@@ -1,7 +1,5 @@
-import { takeLatest } from 'redux-saga'
-import { call, put } from 'redux-saga/effects'
-//import { hollySeries, nollySeries, novelas, koreanSeries, topRatedSeries} from '../../Data/SeriesJSON'
-//import { addSeries, fetchAllSeries, fetchSeriesByCategory } from '../../Networking/API'
+import { call, put, takeLatest } from 'redux-saga/effects'
+import { fetchCommunity, addCommunity, fetchAllCommunities } from '../../networking/API'
 
 //var hollySeries, nollySeries, novelas, koreanSeries, topRatedSeries = ["jude":"jude"];
 

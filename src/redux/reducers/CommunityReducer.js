@@ -24,7 +24,7 @@ function CommunityReducer(state = INITIAL_STATE, action) {
     case 'FETCH_COMMUNITY_LIST_COMPLETED':
       return {
         ...state,
-        dataList: action.data,
+        dataList: action.data.data,
         isFetching: false,
         isFetched: true,
       }
@@ -70,7 +70,7 @@ function CommunityReducer(state = INITIAL_STATE, action) {
     case 'FETCH_COMMUNITY_COMPLETED':
       return {
         ...state,
-        currentCommunity: action.data,
+        currentCommunity: action.data.data,
         isFetching: false,
         isFetched: true,
       }

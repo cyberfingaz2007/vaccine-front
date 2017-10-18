@@ -8,12 +8,12 @@ const CommunityTableRow = createReactClass({
     return (
       <tr>
         <td>{community.id}</td>
-        <td>{community.communityName}</td>
-        <td>{community.maleAbv10}</td>
-        <td>{community.femBtw10N15}</td>
-        <td>{community.childBel10}</td>
-        <td>{community.femAbv15}</td>
-        <td>{community.project.projectName}</td>
+        <td>{community.community_name}</td>
+        <td>{community.male_abv10}</td>
+        <td>{community.fem_btw10_n15}</td>
+        <td>{community.child_bel10}</td>
+        <td>{community.fem_abv15}</td>
+        <td>{community.project[0].project_name}</td>
       </tr>
     )
   }

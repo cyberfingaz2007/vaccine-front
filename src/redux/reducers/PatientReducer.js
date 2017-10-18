@@ -23,7 +23,7 @@ function PatientReducer(state = INITIAL_STATE, action) {
     case 'FETCH_PATIENT_LIST_COMPLETED':
       return {
         ...state,
-        dataList: action.data,
+        dataList: action.data.data,
         isFetching: false,
         isFetched: true,
       }
@@ -69,7 +69,7 @@ function PatientReducer(state = INITIAL_STATE, action) {
     case 'FETCH_PATIENT_COMPLETED':
       return {
         ...state,
-        currentPatient: action.data,
+        currentPatient: action.data.data,
         isFetching: false,
         isFetched: true,
       }

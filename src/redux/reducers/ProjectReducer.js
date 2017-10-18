@@ -24,7 +24,7 @@ function ProjectReducer(state = INITIAL_STATE, action) {
     case 'FETCH_PROJECT_LIST_COMPLETED':
       return {
         ...state,
-        dataList: action.data,
+        dataList: action.data.data,
         isFetching: false,
         isFetched: true,
       }
@@ -70,7 +70,7 @@ function ProjectReducer(state = INITIAL_STATE, action) {
     case 'FETCH_PROJECT_COMPLETED':
       return {
         ...state,
-        currentProject: action.data,
+        currentProject: action.data.data,
         isFetching: false,
         isFetched: true,
       }
