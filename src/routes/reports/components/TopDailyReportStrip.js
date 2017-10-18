@@ -20,6 +20,7 @@ export default class TopDailyReportStrip extends React.Component {
           <ProgressPieChart />
         </Col>
     	</Row>
+        
     )
   }
 }

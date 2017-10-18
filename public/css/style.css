@@ -4206,3 +4206,8 @@ padding: 6px 10px;
 .st-blue {
   background-color: #23b7e5;
 }
+.chart {
+  overflow: hidden;
+  height: 220px;
+  margin: 20px 5px 10px 10px;
+}

@@ -1,6 +1,7 @@
 
 import React from 'react'
-import $ from 'jquery'
+//import $ from 'jquery'
+
 import 'imports-loader?this=>window!smartadmin-plugins/flot-bundle/flot-bundle.min.js'
 
 export default class FlotChart extends React.Component {
