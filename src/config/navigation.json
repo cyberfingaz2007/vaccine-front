@@ -1,0 +1,75 @@
+{
+  "items": [
+    {
+      "title": "Dashboard",
+
+      "icon": "fa fa-lg fa-fw fa-dashboard",
+      "route": "/dashboard"
+    },
+    {
+      "title": "Patients",
+      "icon": "fa fa-lg fa-fw fa-user-o txt-color-blue",
+      "items": [
+        {
+          "icon": "fa fa-pencil-square-o",
+          "title": "Register Patient",
+          "route": "/records/new-patient"
+        },
+        {
+          "icon": "fa fa-tasks",
+          "title": "List Patients",
+          "route": "/records/list-patients"
+        }
+      ]
+    },
+    {
+      "title": "Communities",
+      "icon": "fa fa-lg fa-fw fa-users txt-color-blue",
+      "items": [
+        {
+          "icon": "fa fa-pencil-square-o",
+          "title": "Add Community",
+          "route": "/communities/new-community"
+        },
+        {
+          "icon": "fa fa-tasks",
+          "title": "List Communities",
+          "route": "/communities/list-communities"
+        }
+      ]
+    },
+    {
+      "title": "Projects",
+      "icon": "fa fa-lg fa-fw fa-sticky-note-o txt-color-blue",
+      "items": [
+        {
+          "icon": "fa fa-pencil-square-o",
+          "title": "New Project",
+          "route": "/projects/new-project"
+        },
+        {
+          "icon": "fa fa-tasks",
+          "title": "List Projects",
+          "route": "/projects/list-projects"
+        }
+      ]
+    },
+    {
+      "title": "Reports",
+      "icon": "fa fa-lg fa-fw fa-table txt-color-blue",
+      "items": [
+        {
+          "icon": "fa fa-sun-o",
+          "title": "Daily Reports",
+          "route": "/reports/daily-reports"
+        },
+        {
+          "icon": "fa fa-tasks",
+          "title": "Project Progress",
+          "route": "/reports/project-progress"
+        }
+      ]
+    }
+
+  ]
+}
