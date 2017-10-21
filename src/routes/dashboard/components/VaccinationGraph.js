@@ -4,24 +4,28 @@ import {bindActionCreators} from 'redux';
 import { Link } from 'react-router'
 import { Button, Form, FormGroup, HelpBlock, ControlLabel, FormControl, Col, Row, Tabs, Tab, Clearfix, Panel } from 'react-bootstrap';
 
-import * as reportsActions from '../actions/reports'
+import * as dashActions from '../actions/dashboard'
+
+import Select2 from '../../../components/forms/inputs/Select2'
 import SmallBanner from '../../../components/ui/SmallBanner'
 import PanelWidget from '../../../components/ui/PanelWidget'
+import FlotChart from '../../../components/graphs/flot/FlotChart'
 
-import ChartJsGraph from '../../../components/graphs/chartjs/ChartJsGraph'
-
-const pieChartData = {
-  "labels":["Red","Blue","Yellow"],
-  "datasets":[
-    {
-      "data":[300,50,100],
-      "backgroundColor":["#FF6384","#36A2EB","#FFCE56"],
-      "hoverBackgroundColor":["#FF6384","#36A2EB","#FFCE56"]
-    }
-  ]
-}
-
-class TotVaccPieChart extends React.Component{
+const pieChartData = [
+  {
+    "label": "Series1",
+    "data": 60
+  },
+  {
+    "label": "Series2",
+    "data": 27
+  },
+  {
+    "label": "Series3",
+    "data": 92
+  }
+]
+class VaccinationGraph extends React.Component{
 	constructor(props){
     super(props);
     this.state = {};
@@ -36,13 +40,13 @@ class TotVaccPieChart extends React.Component{
 
   handleProjectChange(e) {
     this.setState({ project: e.target.value });
-    this.props.totVaccRequest(e.target.value);
+    this.props.progPieTillDateRequest(e.target.value);
     //console.log(this.state);
   }
 
   render () {
     return (
-      <PanelWidget panelHeader="Total Vaccinated">
+      <PanelWidget panelHeader="Progress Pie Chart till Date">
         <FormGroup controlId="formControlsSelect">
           <ControlLabel>Select Project</ControlLabel>
           <FormControl componentClass="select" placeholder="Select Project" onChange={this.handleProjectChange} value={this.state.project}>
@@ -50,12 +54,12 @@ class TotVaccPieChart extends React.Component{
             {this.props.projects.map((project, i) => (<option key={i} value={project.id}>{project.project_name}</option>) )}
           </FormControl>
         </FormGroup>
-        <ChartJsGraph type="doughnut" data={pieChartData}/>
+        <FlotChart data={pieChartData}
+                               options={pieChartDemoOptions}/>
       </PanelWidget>
     )
   }
 }
-
 
 const pieChartDemoOptions = {
   series: {
@@ -97,9 +101,9 @@ const mapStateToProps = state => ({
 })
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({...reportsActions},dispatch);
+    return bindActionCreators({...dashActions},dispatch);
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(TotVaccPieChart);
+export default connect(mapStateToProps,mapDispatchToProps)(VaccinationGraph);
 
-//export default TotVaccPieChart
+//export default VaccinationGraph

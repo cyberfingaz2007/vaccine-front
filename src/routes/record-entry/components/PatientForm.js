@@ -179,7 +179,7 @@ class PatientForm extends Component {
 		          <ControlLabel>Select Project</ControlLabel>
 		          <FormControl componentClass="select" placeholder="Select Project" onChange={this.handleProjectChange} value={this.state.project}>
 		            <option value="select">Select Project</option>
-		            {this.props.projects.map((project, i) => (<option key={i} value={project.id}>{project.projectName}</option>) )}
+		            {this.props.projects.map((project, i) => (<option key={i} value={project.id}>{project.project_name}</option>) )}
 		          </FormControl>
 		        </FormGroup>
 		      </Col>

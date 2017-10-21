@@ -2,8 +2,9 @@ import React from 'react'
 import { Col, Clearfix, Panel, Row } from 'react-bootstrap';
 
 import PanelWidget from '../../../components/ui/PanelWidget'
-import TopBannerRow from '../components/TopBannerRow'
-import MainRow from '../components/MainRow'
+import TopBannerRow from './TopBannerRow'
+import MainRow from './MainRow'
+//import SecondRow from './SecondRow'
 // require('../../smartadmin/components/less/components.less');
 
 export default class Dashboard extends React.Component {

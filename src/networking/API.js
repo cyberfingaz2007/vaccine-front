@@ -158,3 +158,84 @@ export function fetchSingleCommunity(data) {
 
   return dataObj;
 }
+
+
+export function fetchPatVaccForDate() {
+	var dataObj = api
+								  .get('/all-communities')
+								  .then((response) => {
+								  	//response.data[0].commit.message
+								  	console.log(response);
+								  	return response;
+								  })
+								  .then((error) => {
+								  	console.log(error)
+								  	return error;
+								  });
+
+  return dataObj;
+}
+
+export function fetchProgPieTillDate() {
+	var dataObj = api
+								  .get('/all-communities')
+								  .then((response) => {
+								  	//response.data[0].commit.message
+								  	console.log(response);
+								  	return response;
+								  })
+								  .then((error) => {
+								  	console.log(error)
+								  	return error;
+								  });
+
+  return dataObj;
+}
+
+export function fetchTotVacc() {
+	var dataObj = api
+								  .get('/all-communities')
+								  .then((response) => {
+								  	//response.data[0].commit.message
+								  	console.log(response);
+								  	return response;
+								  })
+								  .then((error) => {
+								  	console.log(error)
+								  	return error;
+								  });
+
+  return dataObj;
+}
+
+export function fetchTotBudgetSpent() {
+	var dataObj = api
+								  .get('/all-communities')
+								  .then((response) => {
+								  	//response.data[0].commit.message
+								  	console.log(response);
+								  	return response;
+								  })
+								  .then((error) => {
+								  	console.log(error)
+								  	return error;
+								  });
+
+  return dataObj;
+}
+
+export function fetchProjectTimeElapsed() {
+	var dataObj = api
+								  .get('/all-communities')
+								  .then((response) => {
+								  	//response.data[0].commit.message
+								  	console.log(response);
+								  	return response;
+								  })
+								  .then((error) => {
+								  	console.log(error)
+								  	return error;
+								  });
+
+  return dataObj;
+}

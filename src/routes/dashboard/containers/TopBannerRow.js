@@ -22,12 +22,12 @@ export default class TopBannerRow extends React.Component{
 
         <SmallBanner classNoms="sm-st-icon st-violet" iClassNoms="fa fa-envelope-o">
           <span>32</span>
-          Time Elapsed
+          Total Patients on Platfm
         </SmallBanner>
 
         <SmallBanner classNoms="sm-st-icon st-blue" iClassNoms="fa fa-dollar">
-          <span>32 days</span>
-          Budget Spent
+          <span>0</span>
+          Completed Projects
         </SmallBanner>
 
         <SmallBanner classNoms="sm-st-icon st-green" iClassNoms="fa fa-paperclip">

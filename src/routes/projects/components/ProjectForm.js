@@ -139,7 +139,7 @@ class ProjectForm extends Component {
 		          <ControlLabel>Select Community</ControlLabel>
 		          <FormControl componentClass="select" placeholder="Select Community" onChange={this.handleCommunityChange} value={this.state.community}>
 		            <option value="select">Select Community</option>
-		            {this.props.communities.map((community, i) => (<option key={i} value={community.id}>{community.communityName}</option>) )}
+		            {this.props.communities.map((community, i) => (<option key={i} value={community.id}>{community.community_name}</option>) )}
 		          </FormControl>
 		        </FormGroup>
 		      </Col>

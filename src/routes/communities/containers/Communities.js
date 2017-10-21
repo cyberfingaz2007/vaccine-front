@@ -38,7 +38,7 @@ class Communities extends React.Component {
         <Row>
       		<Col md={12}>
             <PanelWidget panelHeader="Registered Communities">
-              {(this.props.communities.length > 0) ? <CommunityList communities={this.props.communities} /> : <div><p>There are no communities to show</p></div>}
+              {this.props.communities ? <CommunityList communities={this.props.communities} /> : <div><p>There are no communities to show</p></div>}
             </PanelWidget>
           </Col>
           

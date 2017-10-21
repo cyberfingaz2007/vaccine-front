@@ -2,10 +2,11 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { Link } from 'react-router'
-import { Col, Clearfix, Row, Panel } from 'react-bootstrap';
+import { Button, Form, FormGroup, HelpBlock, ControlLabel, FormControl, Col, Row, Tabs, Tab, Clearfix, Panel } from 'react-bootstrap';
 
 import * as reportsActions from '../actions/reports'
 
+import Select2 from '../../../components/forms/inputs/Select2'
 import SmallBanner from '../../../components/ui/SmallBanner'
 import PanelWidget from '../../../components/ui/PanelWidget'
 import FlotChart from '../../../components/graphs/flot/FlotChart'
@@ -24,9 +25,12 @@ const pieChartData = [
     "data": 92
   }
 ]
-export default class ProgressPieChart extends React.Component{
+class ProgressPieChart extends React.Component{
 	constructor(props){
     super(props);
+    this.state = {};
+
+    this.handleProjectChange = this.handleProjectChange.bind(this);
 
   }
 
@@ -34,10 +38,22 @@ export default class ProgressPieChart extends React.Component{
     
   }
 
+  handleProjectChange(e) {
+    this.setState({ project: e.target.value });
+    this.props.progPieTillDateRequest(e.target.value);
+    //console.log(this.state);
+  }
+
   render () {
     return (
       <PanelWidget panelHeader="Progress Pie Chart till Date">
-        <span>this is the canvas for the Vaccination Date</span>
+        <FormGroup controlId="formControlsSelect">
+          <ControlLabel>Select Project</ControlLabel>
+          <FormControl componentClass="select" placeholder="Select Project" onChange={this.handleProjectChange} value={this.state.project}>
+            <option value="select">Select Project</option>
+            {this.props.projects.map((project, i) => (<option key={i} value={project.id}>{project.project_name}</option>) )}
+          </FormControl>
+        </FormGroup>
         <FlotChart data={pieChartData}
                                options={pieChartDemoOptions}/>
       </PanelWidget>
@@ -80,6 +96,7 @@ const pieChartDemoOptions = {
 
 const mapStateToProps = state => ({
   pieChartData: state.reports.progressPieTillDate,
+  projects: state.project.dataList,
   loading: state.reports.isFetching
 })
 
@@ -87,6 +104,6 @@ function mapDispatchToProps(dispatch){
     return bindActionCreators({...reportsActions},dispatch);
 }
 
-//export default connect(mapStateToProps,mapDispatchToProps)(ProgressPieChart);
+export default connect(mapStateToProps,mapDispatchToProps)(ProgressPieChart);
 
 //export default ProgressPieChart

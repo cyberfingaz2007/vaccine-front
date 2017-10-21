@@ -45,11 +45,11 @@ export default function * root () {
     takeLatest('FETCH_PROJECT_ADD_REQUEST', projectSaga.addProjectSaga),
 
     /*For Reports */
-    takeLatest('FETCH_PATIENT_VAC_FOR_DATE_REQUEST', reportSaga.fetchPatVaccForDate),
-    takeLatest('FETCH_PROGRESS_PIE_TILL_DATE_REQUEST', reportSaga.fetchProgPieTillDate),
-    takeLatest('FETCH_TOTAL_VACC_REQUEST', reportSaga.fetchTotVacc),
-    takeLatest('FETCH_TOTAL_BUDGET_SPENT_REQUEST', reportSaga.fetchTotBudgetSpent),
-    takeLatest('FETCH_PROJ_TIME_ELAPSED_REQUEST', reportSaga.fetchProjectTimeElapsed),
+    takeLatest('FETCH_PATIENT_VAC_FOR_DATE_REQUEST', reportSaga.fetchPatVaccForDateSaga),
+    takeLatest('FETCH_PROGRESS_PIE_TILL_DATE_REQUEST', reportSaga.fetchProgPieTillDateSaga),
+    takeLatest('FETCH_TOTAL_VACC_REQUEST', reportSaga.fetchTotVaccSaga),
+    takeLatest('FETCH_TOTAL_BUDGET_SPENT_REQUEST', reportSaga.fetchTotBudgetSpentSaga),
+    takeLatest('FETCH_PROJ_TIME_ELAPSED_REQUEST', reportSaga.fetchProjectTimeElapsedSaga),
 
   ]
 }

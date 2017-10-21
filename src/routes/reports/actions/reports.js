@@ -17,18 +17,20 @@ export function progPieTillDateRequest(data) {
 }
 
 // Request total vacc
-export function totVaccRequest() {
+export function totVaccRequest(data) {
   console.log("Testing total vaccinated actions");
   return {
     type : 'FETCH_TOTAL_VACC_REQUEST',
+    data,
   }
 }
 
 // Request total Budget spent
-export function totBudgetSpentRequest() {
+export function totBudgetSpentRequest(data) {
   console.log("Testing total Budget spent actions");
   return {
     type : 'FETCH_TOTAL_BUDGET_SPENT_REQUEST',
+    data,
   }
 }
 

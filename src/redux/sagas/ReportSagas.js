@@ -1,5 +1,5 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { fetchCommunity, addCommunity, fetchAllCommunities } from '../../networking/API'
+import { fetchPatVaccForDate, fetchProgPieTillDate, fetchTotVacc, fetchTotBudgetSpent, fetchProjectTimeElapsed } from '../../networking/API'
 
 //var hollySeries, nollySeries, novelas, koreanSeries, topRatedSeries = ["jude":"jude"];
 
@@ -7,44 +7,44 @@ const sampleData = {
    "What": "de Fuck?"
 }
 
-export function* fetchPatVaccForDate(action) {
+export function* fetchPatVaccForDateSaga(action) {
    try {
-      const data = yield call(() => sampleData)
+      const data = yield fetchPatVaccForDate()
       yield put({type: "FETCH_PATIENT_VAC_FOR_DATE_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_PATIENT_VAC_FOR_DATE_ERROR", error})
    }
 }
-export function* fetchProgPieTillDate(action) {
+export function* fetchProgPieTillDateSaga(action) {
    try {
-      const data = yield call(() => sampleData)
+      const data = yield fetchProgPieTillDate()
       yield put({type: "FETCH_PROGRESS_PIE_TILL_DATE_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_PROGRESS_PIE_TILL_DATE_ERROR", error})
    }
 }
 
-export function* fetchTotVacc(action) {
+export function* fetchTotVaccSaga(action) {
    try {
-      const data = yield call(() => sampleData)
+      const data = yield fetchTotVacc()
       yield put({type: "FETCH_TOTAL_VACC_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_TOTAL_VACC_ERROR", error})
    }
 }
 
-export function* fetchTotBudgetSpent(action) {
+export function* fetchTotBudgetSpentSaga(action) {
    try {
-      const data = yield call(() => sampleData)
+      const data = yield fetchTotBudgetSpent()
       yield put({type: "FETCH_TOTAL_BUDGET_SPENT_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_TOTAL_BUDGET_SPENT_ERROR", error})
    }
 }
 
-export function* fetchProjectTimeElapsed(action) {
+export function* fetchProjectTimeElapsedSaga(action) {
    try {
-      const data = yield call(() => sampleData)
+      const data = yield fetchProjectTimeElapsed()
       yield put({type: "FETCH_PROJ_TIME_ELAPSED_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_PROJ_TIME_ELAPSED_ERROR", error})
