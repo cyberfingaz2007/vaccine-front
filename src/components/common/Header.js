@@ -31,7 +31,7 @@ export default class Layout extends React.Component {
               <span className="icon-bar"></span>
           </a>
           <div className="navbar-right">
-            <ul className="nav navbar-nav">
+            <ul className="nav navbar-nav">{/*}
               <li className="dropdown messages-menu">
                   <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                       <i className="fa fa-envelope"></i>
@@ -151,14 +151,14 @@ export default class Layout extends React.Component {
                       <a href="#">View all tasks</a>
                     </li>
                   </ul>
-              </li>
+              </li>*/}
               <li className="dropdown user user-menu">
                 <a href="#" className="dropdown-toggle" data-toggle="dropdown">
                   <i className="fa fa-user"></i>
                   <span>Jude Udoh <i className="caret"></i></span>
                 </a>
                 <ul className="dropdown-menu dropdown-custom dropdown-menu-right">
-                  <li className="dropdown-header text-center">Account</li>
+                  <li className="dropdown-header text-center">Account</li>{/*
                   <li>
                     <a href="#">
                     <i className="fa fa-clock-o fa-fw pull-right"></i>
@@ -171,7 +171,7 @@ export default class Layout extends React.Component {
                     <a href="#"><i className="fa fa-question fa-fw pull-right"></i> <span className=
                         "badge pull-right">11</span> FAQ</a>
                   </li>
-                  <li className="divider"></li>
+                  <li className="divider"></li>*/}
                   <li>
                     <a href="#">
                       <i className="fa fa-user fa-fw pull-right"></i>

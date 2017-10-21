@@ -69,15 +69,6 @@
           "route": "/reports/project-progress"
         }
       ]
-    },
-    {
-      "title": "Configurations",
-      "route": "/configs",
-      "icon": "fa fa-lg fa-fw fa-gear",
-      "badge": {
-        "label": "14",
-        "class": "badge pull-right"
-      }
     }
 
   ]
