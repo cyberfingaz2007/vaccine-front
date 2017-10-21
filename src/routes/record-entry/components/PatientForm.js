@@ -2,6 +2,10 @@ import React,{Component} from 'react';
 import { Link } from 'react-router';
 import { Button, Form, FormGroup, HelpBlock, ControlLabel, FormControl, Col, Row, Tabs, Tab } from 'react-bootstrap'
 
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
+
 function FieldGroup({ id, label, help, ...props }) {
   return (
     <FormGroup controlId={id}>
@@ -71,8 +75,9 @@ class PatientForm extends Component {
     //console.log(this.state);
   }
 
-  handleVacDateChange(e) {
-    this.setState({ vacDate: e.target.value });
+  handleVacDateChange(date) {
+    //this.setState({ vacDate: e.target.value });
+    this.setState({ vacDate: date });
     //console.log(this.state);
   }
 
@@ -81,8 +86,9 @@ class PatientForm extends Component {
     //console.log(this.state);
   }
 
-  handleDOBChange(e) {
-    this.setState({ dob: e.target.value });
+  handleDOBChange(date) {
+    //this.setState({ dob: e.target.value });
+    this.setState({ dob: date });
     //console.log(this.state);
   }
 
@@ -101,17 +107,17 @@ class PatientForm extends Component {
     var formData = {
       fullName: this.state.fullName,
       sex: this.state.sex,
-      dob: this.state.dob,
+      dob: moment(this.state.dob).format('YYYY-MM-DD'),
       residence: this.state.residence,
       vacStatus: this.state.vacStatus,
-      vacDate: this.state.vacDate,
+      vacDate: moment(this.state.vacDate).format('YYYY-MM-DD'),
       description: this.state.description,
       project: this.state.project,
       employee: this.state.employee
     }
 
     console.log(formData);
-    //this.props.addSeriesRequest(formData);
+    this.props.addPatientRequest(formData);
     this.setState({
       fullName: "",
       sex: "select",
@@ -141,14 +147,16 @@ class PatientForm extends Component {
 		        />
 		      </Col>
 		      <Col md={6}>
-		        <FieldGroup
-		          id="dob"
-		          type="text"
-		          label="Date of Birth"
-		          placeholder="Enter DOB"
-		          onChange={this.handleDOBChange}
-		          value={this.state.dob}
-		        />
+            <FormGroup controlId="dob">
+              <ControlLabel>Select Date oF Birth</ControlLabel>
+              <DatePicker
+                selected={this.state.dob}
+                onChange={this.handleDOBChange}
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+              />
+            </FormGroup>
 	        </Col>
 	      </Row>
 	      <Row>
@@ -209,14 +217,17 @@ class PatientForm extends Component {
         </Row>
         <Row>
       		<Col md={6}>
-		        <FieldGroup
-		          id="vacDate"
-		          type="text"
-		          label="Vaccination Date"
-		          placeholder="Select Vaccination Date"
-		          onChange={this.handleVacDateChange}
-		          value={this.state.vacDate}
-		        />
+            <FormGroup controlId="vacDate">
+              <ControlLabel>Select Vaccination Date</ControlLabel>
+              <DatePicker
+                selected={this.state.vacDate}
+                onChange={this.handleVacDateChange}
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+              />
+            </FormGroup>
+		        
 		      </Col>
 		      <Col md={6}>
 		        <FieldGroup

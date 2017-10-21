@@ -31,7 +31,7 @@ class TotBudgetPieChart extends React.Component{
   }
 
   componentDidMount () {
-    
+    this.props.totBudgetSpentRequest();
   }
 
   handleProjectChange(e) {
@@ -50,7 +50,7 @@ class TotBudgetPieChart extends React.Component{
             {this.props.projects.map((project, i) => (<option key={i} value={project.id}>{project.project_name}</option>) )}
           </FormControl>
         </FormGroup>
-        <MorrisGraph data={donutChartData}
+        <MorrisGraph data={this.props.totBudgetSpent}
                      type="donut"
                      formater={this._formaterDemo}
         />
@@ -105,7 +105,7 @@ const pieChartDemoOptions = {
 };
 
 const mapStateToProps = state => ({
-  pieChartData: state.reports.progressPieTillDate,
+  totBudgetSpent: state.reports.totBudgetSpent,
   projects: state.project.dataList,
   loading: state.reports.isFetching
 })

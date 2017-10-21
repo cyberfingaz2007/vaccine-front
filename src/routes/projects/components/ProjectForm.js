@@ -2,6 +2,10 @@ import React,{Component} from 'react';
 import { Link } from 'react-router';
 import { Button, Form, FormGroup, HelpBlock, ControlLabel, FormControl, Col, Row, Tabs, Tab } from 'react-bootstrap'
 
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import moment from 'moment';
+
 function FieldGroup({ id, label, help, ...props }) {
   return (
     <FormGroup controlId={id}>
@@ -23,7 +27,8 @@ class ProjectForm extends Component {
       numOfFieldWorkers: "",
       timeSpan: "",
       budget: "",
-      projectStrtDate: ""
+      projectStrtDate: "",
+      status: ""
     };
     
     this.handleProjectNameChange = this.handleProjectNameChange.bind(this);
@@ -34,6 +39,7 @@ class ProjectForm extends Component {
 
     this.handleBudgetChange = this.handleBudgetChange.bind(this);
     this.handleProjectStrtDateChange = this.handleProjectStrtDateChange.bind(this);
+    this.handleStatusChange = this.handleStatusChange.bind(this);
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -77,8 +83,14 @@ class ProjectForm extends Component {
     //console.log(this.state);
   }
 
-  handleProjectStrtDateChange(e) {
-    this.setState({ projectStrtDate: e.target.value });
+  handleProjectStrtDateChange(date) {
+    //this.setState({ projectStrtDate: e.target.value });
+    this.setState({ projectStrtDate: date });
+    //console.log(this.state);
+  }
+
+  handleStatusChange(e) {
+    this.setState({ status: e.target.value });
     //console.log(this.state);
   }
 
@@ -91,11 +103,12 @@ class ProjectForm extends Component {
       numOfFieldWorkers: this.state.numOfFieldWorkers,
       timeSpan: this.state.timeSpan,
       budget: this.state.budget,
-      projectStrtDate: this.state.projectStrtDate
+      projectStrtDate: moment(this.state.projectStrtDate).format('YYYY-MM-DD'),
+      status: this.state.status
     }
 
     console.log(formData);
-    //this.props.addSeriesRequest(formData);
+    this.props.addProjectRequest(formData);
     this.setState({
       projectName: "",
       description: "",
@@ -103,7 +116,8 @@ class ProjectForm extends Component {
       numOfFieldWorkers: "",
       timeSpan: "",
       budget: "",
-      projectStrtDate: ""
+      projectStrtDate: "",
+      status: ""
     });
     alert("Submitted...");
   }
@@ -135,13 +149,16 @@ class ProjectForm extends Component {
 	      </Row>
         <Row>
       		<Col md={6}>
-		        <FormGroup controlId="community">
-		          <ControlLabel>Select Community</ControlLabel>
-		          <FormControl componentClass="select" placeholder="Select Community" onChange={this.handleCommunityChange} value={this.state.community}>
-		            <option value="select">Select Community</option>
-		            {this.props.communities.map((community, i) => (<option key={i} value={community.id}>{community.community_name}</option>) )}
-		          </FormControl>
-		        </FormGroup>
+		        <FormGroup controlId="projectStrtDate">
+              <ControlLabel>Select Project Start Date</ControlLabel>
+              <DatePicker
+                selected={this.state.projectStrtDate}
+                onChange={this.handleProjectStrtDateChange}
+                showMonthDropdown
+                showYearDropdown
+                dropdownMode="select"
+              />
+            </FormGroup>
 		      </Col>
 		      <Col md={6}>
 		        <FieldGroup
@@ -178,14 +195,14 @@ class ProjectForm extends Component {
         </Row>
         <Row>
       		<Col md={6}>
-		        <FieldGroup
-		          id="projectStrtDate"
-		          type="date"
-		          label="Project Start Date"
-		          placeholder="Select Date"
-		          onChange={this.handleProjectStrtDateChange}
-		          value={this.state.projectStrtDate}
-		        />
+            <FormGroup controlId="community">
+              <ControlLabel>Select Community</ControlLabel>
+              <FormControl componentClass="select" placeholder="Select Community" onChange={this.handleCommunityChange} value={this.state.community}>
+                <option value="select">Select Community</option>
+                {this.props.communities.map((community, i) => (<option key={i} value={community.id}>{community.community_name}</option>) )}
+              </FormControl>
+            </FormGroup>
+            
 		      </Col>
         </Row>
         <Button type="submit">

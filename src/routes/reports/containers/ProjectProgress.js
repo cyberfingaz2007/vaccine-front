@@ -6,7 +6,7 @@ import { Col, Clearfix, Panel, Row } from 'react-bootstrap';
 import * as projectActions from '../../projects/actions/project'
 
 import PanelWidget from '../../../components/ui/PanelWidget'
-import FirstProjectProgressStrip from '../components/FirstProjectProgressStrip'
+import FirstProjectProgressStrip from './FirstProjectProgressStrip'
 // require('../../smartadmin/components/less/components.less');
 
 class ProjectProgress extends React.Component {

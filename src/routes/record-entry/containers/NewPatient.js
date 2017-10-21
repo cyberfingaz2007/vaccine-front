@@ -1,5 +1,10 @@
 import React from 'react'
-import { Col, Clearfix, Panel, Row, Table } from 'react-bootstrap';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import { Col, Clearfix, Panel, Row } from 'react-bootstrap';
+
+import * as patientActions from '../actions/patient'
+import * as projectActions from '../../projects/actions/project'
 
 
 import PanelWidget from '../../../components/ui/PanelWidget'
@@ -25,13 +30,17 @@ const projects = [
 	}
 ];
 
-export default class NewPatient extends React.Component {
+class NewPatient extends React.Component {
+	componentWillMount () {
+    this.props.projectListRequest()
+  }
+
   render() {
     return (
       <Row>
     		<Col md={8}>
           <PanelWidget panelHeader="Register new Patients">
-          	<PatientForm projects={projects} />
+          	<PatientForm projects={this.props.projects} addPatientRequest={this.props.addPatientRequest} />
           </PanelWidget>
         </Col>
     	</Row>
@@ -39,3 +48,16 @@ export default class NewPatient extends React.Component {
   }
 }
 
+
+const mapStateToProps = state => ({
+  projects: state.project.dataList,
+  loading: state.patient.isFetching
+})
+
+function mapDispatchToProps(dispatch){
+    return bindActionCreators({...projectActions, ...patientActions},dispatch);
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(NewPatient);
+
+//export default NewPatient

@@ -31,12 +31,12 @@ class TotVaccPieChart extends React.Component{
   }
 
   componentDidMount () {
-    
+    this.props.totVaccByProjectRequest();
   }
 
   handleProjectChange(e) {
     this.setState({ project: e.target.value });
-    this.props.totVaccRequest(e.target.value);
+    this.props.totVaccByProjectRequest(e.target.value);
     //console.log(this.state);
   }
 
@@ -50,7 +50,7 @@ class TotVaccPieChart extends React.Component{
             {this.props.projects.map((project, i) => (<option key={i} value={project.id}>{project.project_name}</option>) )}
           </FormControl>
         </FormGroup>
-        <ChartJsGraph type="doughnut" data={pieChartData}/>
+        <ChartJsGraph type="doughnut" data={this.props.totVacByProj}/>
       </PanelWidget>
     )
   }
@@ -91,7 +91,7 @@ const pieChartDemoOptions = {
 };
 
 const mapStateToProps = state => ({
-  pieChartData: state.reports.progressPieTillDate,
+  totVacByProj: state.reports.totVacByProj,
   projects: state.project.dataList,
   loading: state.reports.isFetching
 })

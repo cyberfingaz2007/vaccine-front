@@ -18,10 +18,10 @@ class CommunityForm extends Component {
     super(props);
     this.state = {
       communityName: "",
-      maleAbv10: undefined,
-      femBtw10N15: undefined,
-      childBel10: undefined,
-      femAbv15: undefined
+      maleAbv10: "",
+      femBtw10N15: "",
+      childBel10: "",
+      femAbv15: ""
     };
     
     this.handleCommunityNameChange = this.handleCommunityNameChange.bind(this);
@@ -78,13 +78,13 @@ class CommunityForm extends Component {
     }
 
     console.log(formData);
-    //this.props.addSeriesRequest(formData);
+    this.props.addCommunityRequest(formData);
     this.setState({
       communityName: "",
-      maleAbv10: undefined,
-      femBtw10N15: undefined,
-      childBel10: undefined,
-      femAbv15: undefined
+      maleAbv10: "",
+      femBtw10N15: "",
+      childBel10: "",
+      femAbv15: ""
     });
     alert("Submitted...");
   }

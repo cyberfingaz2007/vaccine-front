@@ -22,10 +22,10 @@ export default class MainRow extends React.Component{
     	<Row>
     		<Col md={5}>
           <CompletionStatus />
-          <RecentlyAdded />
+          <RecentlyAdded recentlyAdded={this.props.recentlyAdded} projects={this.props.projects}/>
         </Col>
         <Col md={7}>
-          <ProjectImpact />
+          <ProjectImpact projImpact={this.props.projImpact} projects={this.props.projects} projectImpactWithDataRequest={this.props.projectImpactWithDataRequest} />
         </Col>
     	</Row>
     )

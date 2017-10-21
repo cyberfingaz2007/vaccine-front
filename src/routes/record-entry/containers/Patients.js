@@ -18,7 +18,7 @@ class Patients extends React.Component {
     super(props);
   }
 
-  componentWillMount(){
+  componentDidMount(){
     this.props.patientListRequest()
 
   }

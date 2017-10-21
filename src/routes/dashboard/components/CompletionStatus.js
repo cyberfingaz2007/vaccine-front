@@ -30,12 +30,16 @@ class CompletionStatus extends React.Component{
     super(props);
     this.state = {};
 
-    this.handleProjectChange = this.handleProjectChange.bind(this);
+    //this.handleProjectChange = this.handleProjectChange.bind(this);
 
   }
 
   componentDidMount () {
     
+  }
+
+  componentWillMount () {
+    this.props.compProjStatsRequest();
   }
 
   handleProjectChange(e) {
@@ -47,7 +51,7 @@ class CompletionStatus extends React.Component{
   render () {
     return (
       <PanelWidget panelHeader="Project Completion Status(Percentages)">
-        <ChartJsGraph type="bar" data={statusChartData}/>
+        <ChartJsGraph type="bar" data={this.props.compStats}/>
       </PanelWidget>
     )
   }
@@ -55,15 +59,14 @@ class CompletionStatus extends React.Component{
 
 
 const mapStateToProps = state => ({
-  pieChartData: state.reports.progressPieTillDate,
-  projects: state.project.dataList,
-  loading: state.reports.isFetching
+  compStats: state.dashboard.projCompStats,
+  loading: state.dashboard.isFetching
 })
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({...dashActions},dispatch);
 }
 
-//export default connect(mapStateToProps,mapDispatchToProps)(CompletionStatus);
+export default connect(mapStateToProps,mapDispatchToProps)(CompletionStatus);
 
-export default CompletionStatus
+//export default CompletionStatus

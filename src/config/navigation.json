@@ -56,7 +56,7 @@
     },
     {
       "title": "Reports",
-      "icon": "fa fa-lg fa-fw fa-sticky-note-o txt-color-blue",
+      "icon": "fa fa-lg fa-fw fa-table txt-color-blue",
       "items": [
         {
           "icon": "fa fa-sun-o",

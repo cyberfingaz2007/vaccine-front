@@ -6,7 +6,7 @@ import { Col, Clearfix, Panel, Row } from 'react-bootstrap';
 import * as projectActions from '../../projects/actions/project'
 
 import PanelWidget from '../../../components/ui/PanelWidget'
-import TopDailyReportStrip from '../components/TopDailyReportStrip'
+import TopDailyReportStrip from './TopDailyReportStrip'
 //import MainRow from '../components/MainRow'
 // require('../../smartadmin/components/less/components.less');
 

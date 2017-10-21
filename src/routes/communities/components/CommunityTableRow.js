@@ -13,7 +13,6 @@ const CommunityTableRow = createReactClass({
         <td>{community.fem_btw10_n15}</td>
         <td>{community.child_bel10}</td>
         <td>{community.fem_abv15}</td>
-        <td>{community.project[0].project_name}</td>
       </tr>
     )
   }

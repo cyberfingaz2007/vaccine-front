@@ -38,9 +38,13 @@ class ProjectImpact extends React.Component{
     
   }
 
+  componentWillMount () {
+    //this.props.projectImpactRequest();
+  }
+
   handleProjectChange(e) {
     this.setState({ project: e.target.value });
-    //this.props.progPieTillDateRequest(e.target.value);
+    this.props.projectImpactWithDataRequest(e.target.value);
     //console.log(this.state);
   }
 
@@ -55,7 +59,7 @@ class ProjectImpact extends React.Component{
           </FormControl>
         </FormGroup>
 
-        <ChartJsGraph type="line" data={impactChartData}/>
+        <ChartJsGraph type="line" data={this.props.projImpact}/>
 
       </PanelWidget>
     )
@@ -64,15 +68,15 @@ class ProjectImpact extends React.Component{
 
 
 const mapStateToProps = state => ({
-  pieChartData: state.reports.progressPieTillDate,
+  projImpact: state.dashboard.projImpact,
   projects: state.project.dataList,
-  loading: state.reports.isFetching
+  loading: state.dashboard.isFetching
 })
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({...dashActions},dispatch);
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ProjectImpact);
+//export default connect(mapStateToProps,mapDispatchToProps)(ProjectImpact);
 
-//export default ProjectImpact
+export default ProjectImpact

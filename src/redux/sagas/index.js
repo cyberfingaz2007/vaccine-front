@@ -27,12 +27,14 @@ export default function * root () {
     takeLatest('FETCH_COMMUNITY_REQUEST', communitySaga.fetchCommunity),
     takeLatest('FETCH_COMMUNITY_ADD_REQUEST', communitySaga.addCommunitySaga),
 
-    takeLatest('FETCH_VAC_GRAPH_DATA_REQUEST', dashboardSaga.fetchVaccForDate),
-    takeLatest('FETCH_RECENTLY_ADDED_REQUEST', dashboardSaga.fetchRecentlyAdded),
-    takeLatest('FETCH_TOTAL_VACC_NUM_REQUEST', dashboardSaga.fetchTotVaccNum),
-    takeLatest('FETCH_BUDGET_SPENT_REQUEST', dashboardSaga.fetchTotBudgetSpent),
-    takeLatest('FETCH_TIME_ELAPSED_REQUEST', dashboardSaga.fetchProjectTimeElapsed),
-    takeLatest('FETCH_NUM_OF_PROJECTS_REQUEST', dashboardSaga.fetchNumOfProject),
+    // dashboard sagas only
+    takeLatest('FETCH_TOTAL_VACC_NUM_REQUEST', dashboardSaga.fetchNumAllTotVaccSaga),
+    takeLatest('FETCH_RECENTLY_ADDED_REQUEST', dashboardSaga.fetchRecentlyAddedSaga),
+    takeLatest('FETCH_NUM_ALL_PATIENT_REQUEST', dashboardSaga.fetchNumberAllPatientsSaga),
+    takeLatest('FETCH_NUM_OF_PROJECTS_REQUEST', dashboardSaga.fetchNumOfProjectSaga),
+    takeLatest('FETCH_COMP_PROJ_STATUS_REQUEST', dashboardSaga.fetchProjectsCompStatsSaga),
+    takeLatest('FETCH_PROJ_IMPACT_REQUEST', dashboardSaga.fetchProjectImpactSaga),
+    takeLatest('FETCH_PROJ_IMPACT_WITH_DATA_REQUEST', dashboardSaga.fetchProjectImpactWithDataSaga),
 
     /*For Patients */
     takeLatest('FETCH_PATIENT_LIST_REQUEST', patientSaga.fetchPatientList),
@@ -49,7 +51,12 @@ export default function * root () {
     takeLatest('FETCH_PROGRESS_PIE_TILL_DATE_REQUEST', reportSaga.fetchProgPieTillDateSaga),
     takeLatest('FETCH_TOTAL_VACC_REQUEST', reportSaga.fetchTotVaccSaga),
     takeLatest('FETCH_TOTAL_BUDGET_SPENT_REQUEST', reportSaga.fetchTotBudgetSpentSaga),
+    takeLatest('FETCH_TOTAL_BUDGET_SPENT_WITH_DATA_REQUEST', reportSaga.fetchTotBudgetSpentWithDataSaga),
     takeLatest('FETCH_PROJ_TIME_ELAPSED_REQUEST', reportSaga.fetchProjectTimeElapsedSaga),
+
+    takeLatest('FETCH_ALL_VACC_FOR_PROJECTS_REQUEST', reportSaga.fetchAllVaccsForProjectsSaga),
+    takeLatest('FETCH_VACC_FOR_PROJ_BY_DATE_REQUEST', reportSaga.fetchVaccsForProjectsByDateSaga),
+    takeLatest('FETCH_TOT_VACC_BY_PROJ_REQUEST', reportSaga.fetchTotVaccForProjectSaga),
 
   ]
 }

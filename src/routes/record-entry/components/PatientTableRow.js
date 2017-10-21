@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router'
 import createReactClass from 'create-react-class'
+import moment from 'moment';
 
 const PatientTableRow = createReactClass({
   render() {
@@ -11,9 +12,9 @@ const PatientTableRow = createReactClass({
         <td>{patient.unique_number}</td>
         <td>{patient.full_name}</td>
         <td>{patient.sex}</td>
-        <td>{patient.date_of_birth}</td>
+        <td>{moment(patient.date_of_birth).format("DD-MM-YYYY")}</td>
         <td>{patient.detail[0].vaccination_status}</td>
-        <td>{patient.detail[0].vaccination_date}</td>
+        <td>{moment(patient.detail[0].vaccination_date).format("DD-MM-YYYY")}</td>
         <td>{patient.detail[0].employee_name}</td>
       </tr>
     )

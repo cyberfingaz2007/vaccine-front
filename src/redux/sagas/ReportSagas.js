@@ -1,5 +1,11 @@
 import { call, put, takeLatest } from 'redux-saga/effects'
-import { fetchPatVaccForDate, fetchProgPieTillDate, fetchTotVacc, fetchTotBudgetSpent, fetchProjectTimeElapsed } from '../../networking/API'
+import { fetchPatVaccForDate, 
+         fetchProgPieTillDate, 
+         fetchTotVacc, 
+         fetchTotBudgetSpent, 
+         fetchProjectTimeElapsed, 
+         fetchAllVaccForProjects, 
+         fetchVaccForProjectsByDate, fetchTotVaccByProject } from '../../networking/API'
 
 //var hollySeries, nollySeries, novelas, koreanSeries, topRatedSeries = ["jude":"jude"];
 
@@ -35,10 +41,19 @@ export function* fetchTotVaccSaga(action) {
 
 export function* fetchTotBudgetSpentSaga(action) {
    try {
-      const data = yield fetchTotBudgetSpent()
+      const data = yield fetchTotBudgetSpent(action.data)
       yield put({type: "FETCH_TOTAL_BUDGET_SPENT_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_TOTAL_BUDGET_SPENT_ERROR", error})
+   }
+}
+
+export function* fetchTotBudgetSpentWithDataSaga(action) {
+   try {
+      const data = yield fetchTotBudgetSpent(action.data)
+      yield put({type: "FETCH_TOTAL_BUDGET_SPENT_WITH_DATA_COMPLETED", data})
+   } catch (error) {
+      yield put({type: "FETCH_TOTAL_BUDGET_SPENT_WITH_DATA_ERROR", error})
    }
 }
 
@@ -48,5 +63,35 @@ export function* fetchProjectTimeElapsedSaga(action) {
       yield put({type: "FETCH_PROJ_TIME_ELAPSED_COMPLETED", data})
    } catch (error) {
       yield put({type: "FETCH_PROJ_TIME_ELAPSED_ERROR", error})
+   }
+}
+
+//////////////////////////////////
+
+export function* fetchAllVaccsForProjectsSaga(action) {
+   try {
+      const data = yield fetchAllVaccForProjects()
+      yield put({type: "FETCH_ALL_VACC_FOR_PROJECTS_COMPLETED", data})
+   } catch (error) {
+      yield put({type: "FETCH_ALL_VACC_FOR_PROJECTS_ERROR", error})
+   }
+}
+
+export function* fetchVaccsForProjectsByDateSaga(action) {
+   try {
+      const data = yield fetchVaccForProjectsByDate(action.data)
+      yield put({type: "FETCH_VACC_FOR_PROJ_BY_DATE_COMPLETED", data})
+   } catch (error) {
+      yield put({type: "FETCH_VACC_FOR_PROJ_BY_DATE_ERROR", error})
+   }
+}
+
+
+export function* fetchTotVaccForProjectSaga(action) {
+   try {
+      const data = yield fetchTotVaccByProject(action.data)
+      yield put({type: "FETCH_TOT_VACC_BY_PROJ_COMPLETED", data})
+   } catch (error) {
+      yield put({type: "FETCH_TOT_VACC_BY_PROJ_ERROR", error})
    }
 }

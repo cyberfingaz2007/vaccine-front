@@ -34,7 +34,6 @@ class CommunityList extends React.Component {
   		        <th>Female Pop Btw 10 and 15</th>
   		        <th>Children Below 10</th>
   		        <th>Female Above 15</th>
-  		        <th>Project</th>
   		      </tr>
   		    </thead>
   		    <tbody>

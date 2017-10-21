@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import { Link } from 'react-router'
+import moment from 'moment';
 import { Button, Form, FormGroup, HelpBlock, ListGroup, ListGroupItem, ControlLabel, FormControl, Col, Row, Tabs, Tab, Clearfix, Panel } from 'react-bootstrap';
 
 import * as dashActions from '../actions/dashboard'
@@ -42,17 +43,17 @@ class RecentlyAdded extends React.Component{
     super(props);
     this.state = {};
 
-    this.handleProjectChange = this.handleProjectChange.bind(this);
+    //this.handleProjectChange = this.handleProjectChange.bind(this);
 
   }
 
-  componentDidMount () {
-    
+  componentWillMount () {
+    //this.props.recentlyAddedRequest();
   }
 
   handleProjectChange(e) {
     this.setState({ project: e.target.value });
-    this.props.progPieTillDateRequest(e.target.value);
+    //this.props.progPieTillDateRequest(e.target.value);
     //console.log(this.state);
   }
 
@@ -60,7 +61,7 @@ class RecentlyAdded extends React.Component{
     return (
       <PanelWidget panelHeader="Recently Added Patients">
         <ListGroup fill>
-          {listData.map((listItm, i)=>(<ListGroupItem key={i}>{listItm.full_name} vaccinated on {listItm.detail[0].vaccination_date}</ListGroupItem>))}
+          {this.props.recentlyAdded.map((listItm, i)=>(<ListGroupItem key={i}>{listItm.full_name} vaccinated on {moment(listItm.detail[0].vaccination_date).format("DD-MM-YY")}</ListGroupItem>))}
         </ListGroup>
       </PanelWidget>
     )
@@ -71,9 +72,9 @@ class RecentlyAdded extends React.Component{
 
 
 const mapStateToProps = state => ({
-  pieChartData: state.reports.progressPieTillDate,
+  recentlyAdded: state.dashboard.recentlyAdded,
   projects: state.project.dataList,
-  loading: state.reports.isFetching
+  loading: state.dashboard.isFetching
 })
 
 function mapDispatchToProps(dispatch){

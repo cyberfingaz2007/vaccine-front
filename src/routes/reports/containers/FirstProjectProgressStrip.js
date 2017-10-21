@@ -3,9 +3,9 @@ import { Col, Clearfix, Panel, Row } from 'react-bootstrap';
 
 
 import PanelWidget from '../../../components/ui/PanelWidget'
-import TotVaccPieChart from './TotVaccPieChart'
-import ProjectTimeElapsed from './ProjectTimeElapsed'
-import TotBudgetPieChart from './TotBudgetPieChart'
+import TotVaccPieChart from '../components/TotVaccPieChart'
+import ProjectTimeElapsed from '../components/ProjectTimeElapsed'
+import TotBudgetPieChart from '../components/TotBudgetPieChart'
 //import MainRow from '../components/MainRow'
 // require('../../smartadmin/components/less/components.less');
 

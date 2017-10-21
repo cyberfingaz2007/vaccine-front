@@ -16,28 +16,50 @@ export function recentlyAddedRequest() {
 }
 
 // Request total vacc num
-export function totVaccNumRequest(data) {
+export function totVaccNumRequest() {
   console.log("Testing total vaccinated num actions");
   return {
     type : 'FETCH_TOTAL_VACC_NUM_REQUEST',
-    data,
   }
 }
 
-// Request total Budget spent
-export function totBudgetSpentRequest(data) {
+// Request 
+export function numAllPatientsRequest() {
   console.log("Testing total Budget spent actions");
   return {
-    type : 'FETCH_BUDGET_SPENT_REQUEST',
-    data,
+    type : 'FETCH_NUM_ALL_PATIENT_REQUEST',
   }
 }
 
-// Request project time elapsed
-export function projectTimeElapsedRequest(data) {
+// Request 
+export function numCompProjRequest() {
+  console.log("Testing COMP PROJ actions");
+  return {
+    type : 'FETCH_NUM_OF_COMP_PROJ_REQUEST',
+  }
+}
+
+// Request 
+export function compProjStatsRequest() {
+  console.log("Testing COMP PROJ actions");
+  return {
+    type : 'FETCH_COMP_PROJ_STATUS_REQUEST',
+  }
+}
+
+// Request project impact
+export function projectImpactRequest() {
   console.log("Testing project time elapsed actions");
   return {
-    type : 'FETCH_TIME_ELAPSED_REQUEST',
+    type : 'FETCH_PROJ_IMPACT_REQUEST',
+  }
+}
+
+// Request project impact
+export function projectImpactWithDataRequest(data) {
+  console.log("HE");
+  return {
+    type : 'FETCH_PROJ_IMPACT_WITH_DATA_REQUEST',
     data,
   }
 }
