@@ -2,7 +2,7 @@ import {create} from 'apisauce'
 
 // define the api
 const api = create({
-  baseURL: 'http://powerful-ravine-53551.herokuapp.com/api',
+  baseURL: 'https://powerful-ravine-53551.herokuapp.com/api',
   headers: {
   	'Accept': 'application/json',
     'X-API-KEY': '123',
