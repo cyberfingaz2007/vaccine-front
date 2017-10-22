@@ -10,7 +10,7 @@ import moment from 'moment';
 
 import * as reportsActions from '../actions/reports'
 
-import Select2 from '../../../components/forms/inputs/Select2'
+//import Select2 from '../../../components/forms/inputs/Select2'
 import SmallBanner from '../../../components/ui/SmallBanner'
 import PanelWidget from '../../../components/ui/PanelWidget'
 

@@ -6,7 +6,7 @@ import { Button, Form, FormGroup, HelpBlock, ControlLabel, FormControl, Col, Row
 
 import * as dashActions from '../actions/dashboard'
 
-import Select2 from '../../../components/forms/inputs/Select2'
+//import Select2 from '../../../components/forms/inputs/Select2'
 import SmallBanner from '../../../components/ui/SmallBanner'
 import PanelWidget from '../../../components/ui/PanelWidget'
 import FlotChart from '../../../components/graphs/flot/FlotChart'
