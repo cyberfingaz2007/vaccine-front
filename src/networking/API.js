@@ -2,12 +2,13 @@ import {create} from 'apisauce'
 
 // define the api
 const api = create({
-  baseURL: 'http://vaccine-back/cloud/web/app_dev.php/api',
+  baseURL: 'http://powerful-ravine-53551.herokuapp.com/api',
   headers: {
   	'Accept': 'application/json',
     'X-API-KEY': '123',
     'X-MARKS-THE-SPOT': 'yarrrrr',
-    'client': 'my-react-app'
+    'client': 'my-react-app',
+    'Access-Control-Allow-Origin': 'http://localhost:3000'
   },
   timeout: 30000
 });
