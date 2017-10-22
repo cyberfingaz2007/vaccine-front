@@ -115,7 +115,7 @@ module.exports = {
       // It's important to do this before Babel processes the JS.
       {
         test: /\.(js|jsx)$/,
-        enforce: 'pre',
+        /*enforce: 'pre',
         use: [
           {
             options: {
@@ -125,7 +125,7 @@ module.exports = {
             },
             loader: require.resolve('eslint-loader'),
           },
-        ],
+        ],*/
         include: paths.appSrc,
       },
       {
